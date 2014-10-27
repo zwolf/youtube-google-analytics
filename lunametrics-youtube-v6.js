@@ -265,24 +265,21 @@ function onPlayerStateChange(event) {
 			}
 			//Should the video rear it's head
             if (event.data == YT.PlayerState.PLAYING) {
-				_gaq.push(['_trackEvent', 'Videos', 'Play', thisVideoTitle]); 
-        	    //ga('send', 'event', 'Videos', 'Play', thisVideoTitle);
+        	    ga('send', 'event', 'Videos', 'Play', thisVideoTitle);
 				//thy video plays
 				//reaffirm the pausal beast is not with us
         		pauseFlagArray[j] = false;
         	} 
 			//should the video tire out and cease
         	if (event.data == YT.PlayerState.ENDED){
-				_gaq.push(['_trackEvent', 'Videos', 'Watch to End', thisVideoTitle]); 
-        		//ga('send', 'event', 'Videos', 'Watch to End', thisVideoTitle);
+        		ga('send', 'event', 'Videos', 'Watch to End', thisVideoTitle);
         	} 
 			//and should we tell it to halt, cease, heal.
 			//confirm the pause has but one head and it flies not its flag
 			//lo the pause event will spawn a many headed monster
 			//with events overflowing
         	if (event.data == YT.PlayerState.PAUSED && pauseFlagArray[j] != true){
-				_gaq.push(['_trackEvent', 'Videos', 'Pause', thisVideoTitle]); 
-        		//ga('send', 'event', 'Videos', 'Pause', thisVideoTitle);
+        		ga('send', 'event', 'Videos', 'Pause', thisVideoTitle);
 				//tell the monster it may have
 				//but one head
         		pauseFlagArray[j] = true;
@@ -290,14 +287,12 @@ function onPlayerStateChange(event) {
 			//and should the monster think, before it doth play
 			//after we command it to move
         	if (event.data == YT.PlayerState.BUFFERING){
-				_gaq.push(['_trackEvent', 'Videos', 'Buffering', thisVideoTitle]); 
-        		//ga('send', 'event', 'Videos', 'Buffering', thisVideoTitle);
+        		ga('send', 'event', 'Videos', 'Buffering', thisVideoTitle);
         	}
 			//and should it cue
 			//for why not track this as well.
         	if (event.data == YT.PlayerState.CUED){
-				_gaq.push(['_trackEvent', 'Videos', 'Cueing', thisVideoTitle]); 
-        		//ga('send', 'event', 'Videos', 'Cueing', thisVideoTitle);
+        		ga('send', 'event', 'Videos', 'Cueing', thisVideoTitle);
         	}
 
 	    }
